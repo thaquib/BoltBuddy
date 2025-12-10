@@ -1,0 +1,15 @@
+{
+  "name": "boltbuddy",
+  "version": "1.0.0",
+  "description": "BoltBuddy is a lightweight PHP project that provides a small web interface and includes `adminer.php` for database management. This repository contains basic files to run a local PHP site and a `data/` directory for application data using SQLite.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^3.0.4"
+  }
+}
