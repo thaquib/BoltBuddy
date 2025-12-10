@@ -2,6 +2,9 @@
 
 BoltBuddy is a lightweight PHP project that provides a small web interface and includes `adminer.php` for database management. This repository contains basic files to run a local PHP site and a `data/` directory for application data using SQLite.
 
+Our database is running on SQLite. Which means there is no external database server. The entire database is stored in one file, and any database transactions modify that file.
+
+This repo has everything setup so that when you start the server on your local machine, the database tables are available to the app right away. 
 ## Contents
 - `index.php` — application entry point.
 - `adminer.php` — Adminer single-file database management tool (if present).
