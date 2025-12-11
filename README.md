@@ -34,7 +34,7 @@ This repo has everything setup so that when you start the server on your local m
 
     To load with hot-reload (changes made to your files automatically show up without refreshing your browser),run this in a separate terminal with the first one still running:
     ```bash
-    npx browser-sync start --proxy "localhost:8000" --files "**/*.php"
+    npx browser-sync start --proxy "localhost:8000" --files "**/*.php, **/*.html, **/*.css"
     ```
 
 3. Open `http://localhost:8000` (or `http://localhost:3000` for hot-reload) in your browser to view the app.

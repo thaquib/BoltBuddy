@@ -1,4 +1,6 @@
 <?php
+// <!-- Externally downloaded file, this single file provides the entire DB admin itnerface -->
+
 /** Adminer - Compact database management
  * @link https://www.adminer.org/
  * @author Jakub Vrana, https://www.vrana.cz/
@@ -6,8 +8,7 @@
  * @license https://www.apache.org/licenses/LICENSE-2.0 Apache License, Version 2.0
  * @license https://www.gnu.org/licenses/gpl-2.0.html GNU General Public License, version 2 (one or other)
  * @version 5.4.1
- */
-namespace
+ */namespace
 Adminer;
 const
 	VERSION = "5.4.1";

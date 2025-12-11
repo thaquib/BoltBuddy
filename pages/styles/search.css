@@ -1,0 +1,15 @@
+.search-grid{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    gap: 20px;
+}
+.search-grid-item{
+    border: 1px solid #ccc;
+    /* padding: 10px; */
+    text-align: center;
+    img{
+        max-width: 200px;
+        height: auto;
+        object-fit: contain;
+    }
+}

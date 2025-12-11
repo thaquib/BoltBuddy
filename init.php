@@ -1,3 +1,4 @@
+<!-- This File Intitializes the DB by creating the tables -->
 <?php
 // Path to SQLite database file
 $db_file = __DIR__ . '/data/mydb.sqlite';

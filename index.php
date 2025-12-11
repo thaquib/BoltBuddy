@@ -1,3 +1,4 @@
+<!-- This file sets the routing, aka the valid URLs of our app (/home, /listing, etc)-->
 <?php
 // PHP setup
 require __DIR__ . '/init.php';
