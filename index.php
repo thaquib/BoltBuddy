@@ -17,8 +17,15 @@ $routes = [
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
+
+if (preg_match('#^/listing/(\d+)$#', $path, $matches)) {
+    $listing_id = (int) $matches[1];
+    require __DIR__ . '/pages/listing.php';
+    exit;
+}
 if (array_key_exists($path, $routes)) {
     require __DIR__ . '/pages/' . $routes[$path];
+    exit;
 } else {
     http_response_code(404);
     echo "<h1>404 Not Found</h1>";

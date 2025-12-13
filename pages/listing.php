@@ -1,10 +1,12 @@
 <?php
 // Fetch items
-$results = $db->query('SELECT * FROM EV_Image I Join Listing L Where L.Listing_ID == I.Listing_ID AND I.is_main_image = 1');
-$items = [];
-while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
-    $items[] = $row;
+$images = $db->query('SELECT * FROM EV_Image Where Listing_ID =='. $listing_id);
+$images_items = [];
+while ($row = $images->fetchArray(SQLITE3_ASSOC)) {
+    $images_items[] = $row;
 }
+$listing_info = $db->query('SELECT * FROM Listing Where Listing_ID =='. $listing_id);
+$listing_info = $listing_info->fetchArray(SQLITE3_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -12,25 +14,41 @@ while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Listing Page</title>
-    <link rel="stylesheet" href="./styles/search.css">
+    <title>BoltBuddy</title>
+    <link rel="stylesheet" href="/pages/styles/listing.css">
 </head>
 
 <body>
-    <h1>Listing Page</h1>
-    <p>Reading List and Image table and rendering grid</p>
+ <!-- <?php echo json_encode($listing_info); ?> -->
+<h1><?= $listing_info['Brand'] . ' ' . $listing_info['Model'] . ' (' . $listing_info['Model_Year'] . ')'?></h1>
 
-    <ul>
-        <div class="search-grid">
-            <?php foreach ($items as $item): ?>
-                <div class="search-grid-item">
-                    <li><?php echo json_encode($item); ?></li>
-                    <img src="<?= $item['Image_URL'] ?>" alt="">
-                </div>
-            <?php endforeach; ?>
+<div class="slider">
+    <div class="slider__item">
+            <label class="slider__control">
+                <input type="radio" name="slider" checked />
+            </label>
+            <div class="slider__content">
+                <img src="<?= $images_items[0]['Image_URL'] ?>" alt="">
+            </div>
         </div>
-    </ul>
+    <?php
+    for ($i = 1; $i < count($images_items); $i++) {
+        ?>
+        <div class="slider__item">
+            <label class="slider__control">
+                <input type="radio" name="slider" />
+            </label>
+            <div class="slider__content">
+                <img src="<?= $images_items[$i]['Image_URL'] ?>" alt="">
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+  
+</div>
 
+   
 </body>
 
 </html>

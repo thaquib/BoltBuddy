@@ -27,6 +27,15 @@
   <!-- Main CSS File -->
   <link href="/templates/assets/css/main.css" rel="stylesheet">
 
+  <?php
+  if(!empty($style_sheets)){
+    foreach($style_sheets as $sheet){
+      echo '<link href="' . $sheet . '" rel="stylesheet">';
+    }
+  }
+
+  ?>
+
   <!-- =======================================================
   * Template Name: MyPage
   * Template URL: https://bootstrapmade.com/mypage-bootstrap-personal-template/
@@ -96,11 +105,11 @@
     <!-- Page Title -->
     <div class="page-title light-background">
       <div class="container">
-        <h1>Starter Page</h1>
+        <h1>BoltBuddy</h1>
         <nav class="breadcrumbs">
           <ol>
             <li><a href="/">Home</a></li>
-            <li class="current">Starter Page</li>
+            <li class="current"><?=ucfirst(explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'))[0])?></li>
           </ol>
         </nav>
       </div>
@@ -111,14 +120,9 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Starter Section</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up">
-        <p>Use this page as a starter for your own custom pages.</p>
-      </div>
-
+        <?php
+        echo $content ?? '';
+        ?>
     </section><!-- /Starter Section Section -->
 
   </main>
@@ -143,7 +147,6 @@
           <!-- You can delete the links only if you've purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
       </div>
     </div>
