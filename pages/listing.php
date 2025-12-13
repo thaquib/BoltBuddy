@@ -7,19 +7,16 @@ while ($row = $images->fetchArray(SQLITE3_ASSOC)) {
 }
 $listing_info = $db->query('SELECT * FROM Listing Where Listing_ID =='. $listing_id);
 $listing_info = $listing_info->fetchArray(SQLITE3_ASSOC);
+
+$color = $db->query('SELECT Color_Name FROM Color Where Color_ID =='. $listing_info['Color'])->fetchArray(SQLITE3_ASSOC)['Color_Name'] ?? null;;
+
+$seller_info = $db->query('SELECT * FROM Seller Where Seller_ID =='. $listing_info['Seller_ID']);
+$seller_info = $seller_info->fetchArray(SQLITE3_ASSOC);
+
+ob_start()
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <title>BoltBuddy</title>
-    <link rel="stylesheet" href="/pages/styles/listing.css">
-</head>
-
-<body>
- <!-- <?php echo json_encode($listing_info); ?> -->
 <h1><?= $listing_info['Brand'] . ' ' . $listing_info['Model'] . ' (' . $listing_info['Model_Year'] . ')'?></h1>
 
 <div class="slider">
@@ -44,11 +41,33 @@ $listing_info = $listing_info->fetchArray(SQLITE3_ASSOC);
         </div>
         <?php
     }
-    ?>
-  
+    ?> 
+</div>
+
+<div class="listing-details">
+    <p class="listing-price"><strong>Price</strong>: $<?=$listing_info['Price']?></p>
+    <br>
+    <div class="details-section">
+        <div class="listing-info">
+            <h3>Listing Information</h3>
+            <p class="listing-color"><strong>Color</strong>: <?=$color?></p>
+            <p class="listing-range"><strong>Battery Range</strong>: <?=$listing_info['Battery_Range']?> miles</p>
+            <p class="listing-charging-type"><strong>Charging Type</strong>: <?=$listing_info['Charging_Type']?></p>
+        </div>
+        <br>
+        <div class="seller-info">
+            <h3>Seller Information</h3>
+            <p class="seller-name"><strong>Name</strong>:  <?=$seller_info['First_Name']?> <?=$seller_info['Last_Name']?></p>
+            <p class="seller-email"><strong>Email</strong>:  <?=$seller_info['Email']?></p>
+            <p class="seller-phone"><strong>Phone</strong>:  <?=$seller_info['Phone_Number']?></p>
+            <p class="seller-zip"><strong>Zip Code</strong>:  <?=$seller_info['Zip_Code']?></p>
+        </div>
+    </div>
 </div>
 
    
-</body>
+<?php
+$content = ob_get_clean();
 
-</html>
+$style_sheets = ['/pages/styles/listing.css'];
+include './templates/starter-page.php';

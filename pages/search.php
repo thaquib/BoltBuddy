@@ -34,6 +34,9 @@ ob_start()
     ?>
 
 <form action="/search"  method="GET">
+
+    <input type="text" id="search" name="s" placeholder="Search">
+
     <select name="brand[]" id="brand-filter" multiple>
         <!-- <option value="all">All Brands</option> -->
         <?php

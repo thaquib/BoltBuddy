@@ -11,8 +11,6 @@ $routes = [
     '/home'     => 'home.php',
     '/listing'  => 'listing.php',
     '/search'   => 'search.php',
-    '/details'  => 'details.php',
-    '/about'    => 'about.php',
 ];
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

@@ -1,6 +1,7 @@
 <?php
 function getFilteredListings($db, $filters = [])
 {
+    $s = $_GET['s'] ?? '';
     $brand = $_GET['brand'] ?? [];
     $minYear = $_GET['min-year'] ?? '';
     $maxYear = $_GET['max-year'] ?? '';
@@ -8,9 +9,12 @@ function getFilteredListings($db, $filters = [])
     $sort = $_GET['sort'] ?? 'newest';
 
     // Base query
-    $sql = "SELECT * FROM EV_Image I 
-        JOIN Listing L ON L.Listing_ID = I.Listing_ID
-        WHERE I.is_main_image = 1";
+    $sql = "SELECT * FROM EV_Image I JOIN Listing L ON L.Listing_ID = I.Listing_ID WHERE I.is_main_image = 1";
+
+        // Brand filter
+    if (!empty($s)) {
+        $sql .= " AND (L.Brand Like '%$s%' OR L.Model Like '%$s%')";
+    }
 
     // Brand filter
     if (!empty($brand)) {
