@@ -47,3 +47,8 @@
     flex: 1 1 100%; /* stack on small screens */
   }
 }
+
+.select2-container{
+    width: unset !important;
+    color: black;
+}
