@@ -11,6 +11,7 @@ $routes = [
     '/home'     => 'home.php',
     '/listing'  => 'listing.php',
     '/search'   => 'search.php',
+    '/post'     => 'post.php',
 ];
 
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -21,7 +22,12 @@ if (preg_match('#^/listing/(\d+)$#', $path, $matches)) {
     require __DIR__ . '/pages/listing.php';
     exit;
 }
-if (array_key_exists($path, $routes)) {
+else if (preg_match('#^/seller/(\d+)$#', $path, $matches)){
+    $seller_id = (int) $matches[1];
+    require __DIR__ . '/pages/seller.php';
+    exit;
+}
+else if (array_key_exists($path, $routes)) {
     require __DIR__ . '/pages/' . $routes[$path];
     exit;
 } else {

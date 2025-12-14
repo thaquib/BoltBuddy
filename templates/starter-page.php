@@ -78,6 +78,7 @@
       <ul>
         <li><a href="/"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="/search"><i class="bi bi-search navicon"></i> Search</a></li>
+        <li><a href="/post"><i class="bi bi-plus-circle navicon"></i> Post Listing</a></li>
         <!-- <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
         <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>

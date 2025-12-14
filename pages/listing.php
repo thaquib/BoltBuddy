@@ -77,6 +77,9 @@ ob_start()
             <p class="seller-email"><strong>Email</strong>:  <?=$seller_info['Email']?></p>
             <p class="seller-phone"><strong>Phone</strong>:  <?=$seller_info['Phone_Number']?></p>
             <p class="seller-zip"><strong>Zip Code</strong>:  <?=$seller_info['Zip_Code']?></p>
+            <div class="cta">
+                 <a href="/seller/<?= $seller_info['Seller_ID'] ?>"><i class="bi bi-person navicon"></i> Seller Profile</a>
+            </div>
         </div>
     </div>
 </div>
@@ -85,5 +88,5 @@ ob_start()
 <?php
 $content = ob_get_clean();
 
-$style_sheets = ['/pages/styles/listing.css'];
+$style_sheets = ['/pages/styles/listing.css', '/pages/styles/button.css'];
 include './templates/starter-page.php';
