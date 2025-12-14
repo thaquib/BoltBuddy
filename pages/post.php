@@ -26,22 +26,22 @@ ob_start()
     </select>
 
     <label for="battery-range">Battery Range:</label>
-    <input type="number" id="battery-range" name="battery-range" >
+    <input type="number" id="battery-range" name="battery-range" required>
 
     <label for="charging-type">Charging Type:</label>
-    <input type="text" id="charging-type" name="charging-type" >
+    <input type="text" id="charging-type" name="charging-type" required>
 
     <label for="brand">Brand:</label>
-    <input type="text" id="brand" name="brand" >
+    <input type="text" id="brand" name="brand" required>
 
     <label for="model">Model:</label>
-    <input type="text" id="model" name="model" >
+    <input type="text" id="model" name="model" required>
 
     <label for="model-year">Model Year:</label>
-    <input type="number" id="model-year" name="model-year" >
+    <input type="number" id="model-year" name="model-year" required>
 
     <label for="color">Color:</label>
-    <select name="color" id="color">
+    <select name="color" id="color" required>
         <?php
         foreach ($colors as $color) {
             echo '<option value="' . htmlspecialchars($color['Color_ID']) . '">' . htmlspecialchars($color['Color_Name']) . '</option>';
@@ -50,10 +50,10 @@ ob_start()
     </select>
 
     <label for="price">Price:</label>
-    <input type="number" id="price" name="price" >
+    <input type="number" id="price" name="price" required>
 
     <label for="image-url">Image URL:</label>
-    <input type="file" id="file" name="files[]"  >
+    <input type="file" id="file" name="files[]" required >
 
     <input type="submit" value="Submit Listing">
 </form>
