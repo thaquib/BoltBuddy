@@ -1,4 +1,5 @@
 .search-grid {
+  padding-top: 50px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -22,7 +23,7 @@
   background-color: #293342;
 }
 .search-grid-item h3{
-    color: #22e7a1;
+    color: #fcfd3e;
 }
 
 .search-grid-item img {

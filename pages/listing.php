@@ -8,7 +8,15 @@ while ($row = $images->fetchArray(SQLITE3_ASSOC)) {
 $listing_info = $db->query('SELECT * FROM Listing Where Listing_ID =='. $listing_id);
 $listing_info = $listing_info->fetchArray(SQLITE3_ASSOC);
 
-$color = $db->query('SELECT Color_Name FROM Color Where Color_ID =='. $listing_info['Color'])->fetchArray(SQLITE3_ASSOC)['Color_Name'] ?? null;;
+$color = $db->query('SELECT Color_Name FROM Color Where Color_ID =='. $listing_info['Color'])->fetchArray(SQLITE3_ASSOC)['Color_Name'] ?? null;
+
+$tax_benefits_q = $db->query('SELECT * FROM Tax_Benefit T Join Listing_Tax_Benefit L  On  L.Tax_Benefit_ID == T.Tax_Benefit_ID Where L.Listing_ID =='.$listing_id);
+$tax_benefits = [];
+while ($row = $tax_benefits_q->fetchArray(SQLITE3_ASSOC)) {
+    $tax_benefits[] = $row;
+}
+
+
 
 $seller_info = $db->query('SELECT * FROM Seller Where Seller_ID =='. $listing_info['Seller_ID']);
 $seller_info = $seller_info->fetchArray(SQLITE3_ASSOC);
@@ -53,6 +61,14 @@ ob_start()
             <p class="listing-color"><strong>Color</strong>: <?=$color?></p>
             <p class="listing-range"><strong>Battery Range</strong>: <?=$listing_info['Battery_Range']?> miles</p>
             <p class="listing-charging-type"><strong>Charging Type</strong>: <?=$listing_info['Charging_Type']?></p>
+            <br>
+            <h4>Tax Benefits</h4>
+            <ul class="tax-benefits-list">
+                <?php
+                foreach ($tax_benefits as $benefit) {
+                    echo '<li><strong>' . htmlspecialchars($benefit['Benefit_Type']) . '</strong>: $' . htmlspecialchars($benefit['Amount']) . '</li>';
+                }
+                ?>
         </div>
         <br>
         <div class="seller-info">

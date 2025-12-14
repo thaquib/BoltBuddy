@@ -9,8 +9,10 @@
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="/templates/assets/img/favicon.png" rel="icon">
-  <link href="/templates/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="/images/boltbuddy-logo.png" rel="icon">
+  <link href="/images/boltbuddy-logo.png" rel="apple-touch-icon">
+
+  <!-- <link href="/templates/assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -61,7 +63,7 @@
 
     <div class="header-top">
       <div class="profile-img">
-        <img src="/templates/assets/img/profile/profile-square-14.webp" alt="" class="img-fluid">
+        <img src="/images/boltbuddy-logo.png" alt="" class="img-fluid">
       </div>
 
       <a href="index.html" class="logo d-flex align-items-center justify-content-center">
@@ -139,7 +141,7 @@
   <footer id="footer" class="footer light-background">
     <div class="container">
       <h3 class="sitename">Bolt Buddy</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+      <!-- <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p> -->
       <div class="social-links d-flex justify-content-center">
         <a href=""><i class="bi bi-twitter-x"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>
